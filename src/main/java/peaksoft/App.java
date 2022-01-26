@@ -1,5 +1,6 @@
 package peaksoft;
 
+import peaksoft.Util.Hibernate;
 import peaksoft.entity.Employee;
 
 import java.util.ArrayList;
@@ -15,8 +16,11 @@ public class App {
     public static final Scanner sc=new Scanner(System.in);
     public static final Scanner sc1=new Scanner(System.in);
     public static void main( String[] args ){
+        Hibernate.printInformation();
         byte number= sc.nextByte();
-              Employee employee=  new Employee("Rahim","Kurbanov", (byte) 18);
+              Employee employee=  new Employee("Aza","Kurbanov", (byte) 20);
+
+
 switch (number){
     case 1:
         System.out.println(Employee.create(employee));
@@ -45,10 +49,14 @@ switch (number){
         Employee.employee();
         break;
     case 7:
-        Employee.removeEmpoyee();
+        Employee.removeEmployee();
         break;
     default:
         System.out.println("bashka san jok");
 }
+
+
+
+
     }
 }

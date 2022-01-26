@@ -119,18 +119,19 @@ public class Employee {
         System.out.println("Finded: " + employees1.size() + "students");
         return employees1;
     }
-    public static void employee(){
-        Session session=Hibernate.getSession().openSession();
+
+    public static void employee() {
+        Session session = Hibernate.getSession().openSession();
         session.beginTransaction();
-        Query query=session.createSQLQuery("update employee set age=18  where id=9 and name='Aza'");
-        query.executeUpdate();
+        session.createQuery("update Employee  set age =18 where name like 'Aza'").executeUpdate();
         session.getTransaction().commit();
         session.close();
     }
-    public static void removeEmpoyee(){
-        Session session=Hibernate.getSession().openSession();
+
+    public static void removeEmployee() {
+        Session session = Hibernate.getSession().openSession();
         session.beginTransaction();
-        Query query=session.createSQLQuery("delete from employee where name='Aza';");
+        Query query = session.createQuery("delete from Employee where name='Aza'");
         query.executeUpdate();
         session.getTransaction().commit();
         session.close();
